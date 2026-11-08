@@ -9,3 +9,4 @@ GitHub owner: redclay-labs
 | 2026-11-08 | Inline styles only, no CSS framework | Components must drop into any app |
 | 2026-11-08 | GitHub owner: redclay-labs | Verified from git remote origin URL |
 | 2026-11-08 | Pin eslint@9.22.0 | ESLint 9 is compatible with eslint-plugin-react-hooks@5.1.0 flat config APIs |
+| 2026-11-08 | Use actions/checkout@v4, pnpm/action-setup@v4, actions/setup-node@v4 | Current major GitHub Actions versions supporting Node 20 & 22 with pnpm caching |
