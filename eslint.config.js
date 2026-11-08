@@ -3,7 +3,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 
 export default tsPlugin.config(
   {
-    ignores: ["dist/**"],
+    ignores: ["dist/**", "coverage/**"],
   },
   ...tsPlugin.configs.recommended,
   {
