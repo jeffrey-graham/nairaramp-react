@@ -57,3 +57,18 @@
   - `node -e "..."` with `js-yaml`: Verified `.github/workflows/ci.yml` is syntactically valid YAML (exit code 0).
   - `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm test`: Verified all pipeline checks pass locally (exit code 0).
 - **Open issues:** None.
+
+## 2026-11-08 - Step 04: License, security, contributing, README
+
+- **What was built:**
+  - `LICENSE`: Added full Apache License 2.0 with copyright notice "Copyright 2026 John Imeobong Abasiediedu".
+  - `package.json`: Explicitly added `"license": "Apache-2.0"`.
+  - `SECURITY.md`: Configured GitHub private vulnerability reporting policy supporting latest 0.x only, with note directing ramp/signing logic issues to `nairaramp-core`.
+  - `CONTRIBUTING.md`: Configured guidelines covering library summary, development setup, Vitest/RTL testing with mocked Ramp client, repo scope boundaries, issue branch conventions, Stellar Wave program details on Drips, and code rules (accessibility, 360px responsiveness, dependencies).
+  - `README.md`: Configured package title, one-line summary, early development/testnet status, and policy links.
+- **Commands run with results:**
+  - `pnpm build`: Built ESM, CJS, and DTS bundles cleanly (exit code 0).
+  - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
+  - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
+  - `pnpm test`: Ran Vitest suite with `jsdom`, 1 passed (exit code 0).
+- **Open issues:** None.
