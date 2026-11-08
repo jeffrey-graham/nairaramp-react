@@ -99,3 +99,16 @@
   - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
   - `pnpm test`: Ran Vitest suite with `jsdom`, 2 files and 12 tests passed (exit code 0).
 - **Open issues:** None.
+
+## 2026-11-08 - Step 07: PayWithNaira component
+
+- **What was built:**
+  - `src/PayWithNaira.tsx`: Implemented `<PayWithNaira ramp assetCode amount? onComplete? onError? label? />`. Synchronously opens `window.open("", "nairaramp_anchor")` before start, updates href when url arrives, closes popup on failure, renders blocked-popup fallback link (`"Continue to the anchor"`) if window.open returns null, renders phases (`idle`, `starting`, `awaiting_user`, `processing`, `completed`, `failed` with "Try again" reset), fires `onComplete` and `onError` once each when reached, formatted with inline styles (width 100%, maxWidth 420px, readable at 360px), type="button" buttons with visible focus, and `aria-live="polite"` status region.
+  - `src/index.ts`: Exported `PayWithNaira` and `type PayWithNairaProps`.
+  - `test/PayWithNaira.test.tsx`: Added 9 unit tests verifying synchronous `window.open` call before start resolves, blocked-popup fallback link attributes, all UI phases, error recovery via Try again button, single execution of `onComplete` and `onError` callbacks, popup closure on start or watcher failure, and aria-live/responsive styling constraints.
+- **Commands run with results:**
+  - `pnpm build`: Built ESM, CJS, and DTS bundles cleanly via `tsup` (exit code 0).
+  - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
+  - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
+  - `pnpm test`: Ran Vitest suite with `jsdom`, 3 files and 21 tests passed (exit code 0).
+- **Open issues:** None.
