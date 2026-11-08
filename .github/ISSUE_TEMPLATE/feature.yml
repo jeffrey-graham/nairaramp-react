@@ -1,0 +1,42 @@
+name: Feature Request
+description: Propose a new feature or enhancement for @nairaramp/react
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this feature solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed solution
+      description: Describe your proposed implementation or design.
+    validations:
+      required: true
+  - type: checkboxes
+    id: done-when
+    attributes:
+      label: Done when
+      description: Acceptance criteria that must be satisfied.
+      options:
+        - label: Implementation complete according to design
+          required: true
+        - label: Comprehensive unit/component tests added and passing
+          required: true
+        - label: Documentation and examples updated
+          required: true
+    validations:
+      required: true
+  - type: textarea
+    id: files-to-touch
+    attributes:
+      label: Files to touch
+      description: Which files in the codebase will be created or modified?
+      placeholder: |
+        - src/components/PayWithNaira.tsx
+        - test/components/PayWithNaira.test.tsx
+    validations:
+      required: false
