@@ -1,0 +1,57 @@
+name: Bug Report
+description: File a bug report for @nairaramp/react
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which component or module is affected?
+      options:
+        - usePayWithNaira
+        - PayWithNaira
+        - StatusTimeline
+        - docs
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug encountered.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected behaviour
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Detail the exact steps to reproduce the issue.
+      placeholder: |
+        1. Import usePayWithNaira
+        2. Call with ...
+        3. See error ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of @nairaramp/react are you using?
+      placeholder: "e.g. 0.0.0"
+    validations:
+      required: true
+  - type: input
+    id: browser-react-version
+    attributes:
+      label: Browser and React version
+      description: Specify your browser and React version.
+      placeholder: "e.g. Chrome 120, React 18.3.1"
+    validations:
+      required: true
