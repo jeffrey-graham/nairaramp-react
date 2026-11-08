@@ -46,3 +46,14 @@
   - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
   - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
 - **Open issues:** None.
+
+## 2026-11-08 - Step 03: Continuous integration
+
+- **What was built:**
+  - `.github/workflows/ci.yml`: Created GitHub Actions CI pipeline triggering on `pull_request` and `push` to `main` with matrix across Node `20` and `22`. Workflow sequence: `actions/checkout@v4` -> `pnpm/action-setup@v4` (v9) -> `actions/setup-node@v4` (with pnpm cache) -> `pnpm install --frozen-lockfile` -> `pnpm lint` -> `pnpm typecheck` -> `pnpm build` -> `pnpm test` -> inline Node verification step confirming all `.js` and `.cjs` bundles in `dist/` begin with `"use client";`.
+  - Validated `.github/workflows/ci.yml` syntax via `js-yaml` parser.
+  - `docs/DECISIONS.md`: Logged GitHub Action major versions used (`actions/checkout@v4`, `pnpm/action-setup@v4`, `actions/setup-node@v4`).
+- **Commands run with results:**
+  - `node -e "..."` with `js-yaml`: Verified `.github/workflows/ci.yml` is syntactically valid YAML (exit code 0).
+  - `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm test`: Verified all pipeline checks pass locally (exit code 0).
+- **Open issues:** None.
