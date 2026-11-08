@@ -86,3 +86,16 @@
   - `node -e "..."` (js-yaml parser): Successfully parsed and validated all `.github` YAML templates (exit code 0).
   - `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm test`: Verified all project checks remain 100% green (exit code 0).
 - **Open issues:** None.
+
+## 2026-11-08 - Step 06: usePayWithNaira hook
+
+- **What was built:**
+  - `src/usePayWithNaira.ts`: Implemented `usePayWithNaira({ ramp, assetCode })` returning `{ start, phase, status, transactionId, url, error, reset }`. Supported phases: `idle`, `starting`, `awaiting_user`, `processing`, `completed`, `failed`. Managed lifecycle transitions, watcher unmount cleanup, reset handler, double-start guard, and wrapped errors as `NairaRampError`.
+  - `src/index.ts`: Exported `usePayWithNaira` and types `UsePayWithNairaOptions`, `UsePayWithNairaResult`, and `PayWithNairaPhase`.
+  - `test/usePayWithNaira.test.tsx`: Added comprehensive unit test suite covering full successful deposit and status lifecycle (`idle` -> `starting` -> `awaiting_user` -> `processing` -> `completed`), watcher unmount cleanup, watcher reset cleanup, double-start prevention, immediate deposit failure, watcher onError failure, terminal status failure, and unmounted state update protection.
+- **Commands run with results:**
+  - `pnpm build`: Built ESM, CJS, and DTS bundles cleanly via `tsup` (exit code 0).
+  - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
+  - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
+  - `pnpm test`: Ran Vitest suite with `jsdom`, 2 files and 12 tests passed (exit code 0).
+- **Open issues:** None.
