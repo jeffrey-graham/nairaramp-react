@@ -111,4 +111,8 @@
   - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
   - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
   - `pnpm test`: Ran Vitest suite with `jsdom`, 3 files and 21 tests passed (exit code 0).
+  - Investigated GitHub Actions CI failure:
+    1. `pnpm/action-setup@v4` threw due to redundant `version: 9` conflicting with `packageManager: pnpm@9.15.9` in `package.json`. Removed redundant `version` key so action reads `packageManager` directly.
+    2. Vitest on Linux Node ESM environment threw `SyntaxError: Named export 'PublicKeypair' not found` when importing `@stellar/typescript-wallet-sdk` via `@nairaramp/core`. Configured `server.deps.inline: ["@nairaramp/core", "@stellar/typescript-wallet-sdk"]` in `vitest.config.ts`.
+    3. Confirmed GitHub Actions run `42499981892` passed 100% green on both Node 20 and Node 22 matrices.
 - **Open issues:** None.
