@@ -5,3 +5,7 @@ export {
   type UsePayWithNairaResult,
   type PayWithNairaPhase,
 } from "./usePayWithNaira";
+export {
+  PayWithNaira,
+  type PayWithNairaProps,
+} from "./PayWithNaira";
