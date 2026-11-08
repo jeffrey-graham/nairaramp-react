@@ -7,6 +7,7 @@
 | @types/node | 26.6.6 | 2026-11-08 |
 | @types/react | 18.3.18 | 2026-11-08 |
 | @types/react-dom | 18.3.5 | 2026-11-08 |
+| @vitest/coverage-v8 | 5.1.0 | 2026-11-08 |
 | eslint | 9.22.0 | 2026-11-08 |
 | eslint-plugin-react-hooks | 5.1.0 | 2026-11-08 |
 | jsdom | 26.0.0 | 2026-11-08 |
