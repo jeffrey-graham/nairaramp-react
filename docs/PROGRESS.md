@@ -146,3 +146,26 @@
   - `pnpm test`: Ran Vitest suite with `jsdom`, 4 files and 28 tests passed (exit code 0).
   - `npm pack --dry-run`: Confirmed tarball contents contain only `dist`, `README.md`, `LICENSE`, `package.json` (exit code 0).
 - **Open issues:** None.
+
+## 2026-11-08 - Step 10: Seed issues
+
+- **What was built:**
+  - Installed `@vitest/coverage-v8@5.1.0` as devDependency, pinned in `package.json` and `VERSIONS.md`. Measured code coverage: overall statements 94.79%, `PayWithNaira.tsx` at 88.57% statements / 53.84% functions, identifying uncovered focus/blur handlers and exception paths. Ignored `coverage/` in `eslint.config.js`.
+  - Created 9 seed issues from real gaps in this repository only, conforming to Stellar Wave guidelines (>=3 Trivial, >=3 Medium, <=3 High):
+    - `docs/seed-issues/01.md`: Add CashOutToNaira component for off-ramp withdrawal flows (High, 200).
+    - `docs/seed-issues/02.md`: Add useRampQuote hook for live rate estimation (High, 200).
+    - `docs/seed-issues/03.md`: Add dark-mode theme support to PayWithNaira and StatusTimeline (Medium, 150).
+    - `docs/seed-issues/04.md`: Add keyboard navigation and automated accessibility tests (Medium, 150).
+    - `docs/seed-issues/05.md`: Add SSR and Next.js React Server Component compatibility tests (Medium, 150).
+    - `docs/seed-issues/06.md`: Increase PayWithNaira test coverage above 90% (Medium, 150).
+    - `docs/seed-issues/07.md`: Export Nigerian language label sets for StatusTimeline (Yoruba, Hausa, Igbo, Pidgin) (Trivial, 100).
+    - `docs/seed-issues/08.md`: Add Vite and React SPA integration guide and sample app to docs (Trivial, 100).
+    - `docs/seed-issues/09.md`: Add custom CSS className and style props to PayWithNaira and StatusTimeline (Trivial, 100).
+  - `docs/seed-issues.md`: Master index listing all 9 issues with complexity, point values, labels, body file links, and printed `gh issue create` commands.
+- **Commands run with results:**
+  - `pnpm vitest run --coverage`: Measured repository test coverage (exit code 0).
+  - `pnpm build`: Built ESM, CJS, and DTS bundles cleanly via `tsup` (exit code 0).
+  - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
+  - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
+  - `pnpm test`: Ran Vitest suite with `jsdom`, 4 files and 28 tests passed (exit code 0).
+- **Open issues:** None.
