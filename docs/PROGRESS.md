@@ -129,3 +129,20 @@
   - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
   - `pnpm test`: Ran Vitest suite with `jsdom`, 4 files and 28 tests passed (exit code 0).
 - **Open issues:** None.
+
+## 2026-11-08 - Step 09: Docs and release preparation
+
+- **What was built:**
+  - `package.json` & `src/index.ts`: Bumped package and `VERSION` constant to `0.1.0`.
+  - `test/smoke.test.ts`: Updated smoke test asserting `VERSION === "0.1.0"`.
+  - `docs/API.md`: Documented every export of `src/index.ts` (`VERSION`, `usePayWithNaira`, `PayWithNaira`, `StatusTimeline`, and supporting types/constants), including behavior per phase, accessibility features, and working examples.
+  - `README.md`: Added package summary, installation instructions (`pnpm add @nairaramp/react @nairaramp/core`), a 20-line example with `createRamp` and `freighterSigner` from `@nairaramp/core`, Next.js App Router `"use client"` guidance, documentation links, and plain text note: `Related repositories: nairaramp-core, nairaramp-demo`. Verified and type-checked the example via temporary `test/readme-example.tsx` before removal.
+  - `CHANGELOG.md`: Added initial `0.1.0` release entry documenting hook, components, Next.js support, and packaging.
+  - Tarball packing and import verification: Ran `npm pack --dry-run` and verified only `dist`, `README.md`, `LICENSE`, and `package.json` are packaged. Generated tarball `nairaramp-react-0.1.0.tgz`, installed it with `@nairaramp/core`, `react`, and `react-dom` into a temporary folder outside the repository, and verified it loads cleanly in Node (both ESM and CJS). Cleaned up the tarball and temporary directory.
+- **Commands run with results:**
+  - `pnpm build`: Built ESM, CJS, and DTS bundles cleanly via `tsup` (exit code 0).
+  - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
+  - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
+  - `pnpm test`: Ran Vitest suite with `jsdom`, 4 files and 28 tests passed (exit code 0).
+  - `npm pack --dry-run`: Confirmed tarball contents contain only `dist`, `README.md`, `LICENSE`, `package.json` (exit code 0).
+- **Open issues:** None.
