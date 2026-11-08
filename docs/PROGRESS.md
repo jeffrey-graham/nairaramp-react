@@ -72,3 +72,17 @@
   - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
   - `pnpm test`: Ran Vitest suite with `jsdom`, 1 passed (exit code 0).
 - **Open issues:** None.
+
+## 2026-11-08 - Step 05: Issue and PR templates
+
+- **What was built:**
+  - `.github/ISSUE_TEMPLATE/config.yml`: Configured `blank_issues_enabled: false`.
+  - `.github/ISSUE_TEMPLATE/bug.yml`: Formatted bug report issue form with component dropdown (`usePayWithNaira`, `PayWithNaira`, `StatusTimeline`, `docs`), what happened, expected behaviour, steps to reproduce, version, and browser/React version inputs. Labeled `bug`.
+  - `.github/ISSUE_TEMPLATE/feature.yml`: Formatted feature request issue form with problem, proposed solution, required "Done when" checklist, and files to touch. Labeled `enhancement`.
+  - `.github/ISSUE_TEMPLATE/spike.yml`: Formatted technical spike issue form with question to answer, what to investigate, and expected output. Labeled `spike`.
+  - `.github/pull_request_template.md`: Added PR template with "Closes #", summary, test evidence commands, and completion checklist.
+  - Verified every YAML file parses cleanly via `js-yaml`.
+- **Commands run with results:**
+  - `node -e "..."` (js-yaml parser): Successfully parsed and validated all `.github` YAML templates (exit code 0).
+  - `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm test`: Verified all project checks remain 100% green (exit code 0).
+- **Open issues:** None.
