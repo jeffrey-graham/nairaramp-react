@@ -169,3 +169,28 @@
   - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
   - `pnpm test`: Ran Vitest suite with `jsdom`, 4 files and 28 tests passed (exit code 0).
 - **Open issues:** None.
+
+## 2026-11-08 - Step 11: Final audit
+
+- **What was built:**
+  - Comprehensive audit of all repository deliverables:
+    - Scaffold (`package.json`, `pnpm-lock.yaml`, `tsconfig.json`, `tsup.config.ts`, `vitest.config.ts`, `eslint.config.js`, `VERSIONS.md`, `LICENSE`).
+    - CI workflow (`.github/workflows/ci.yml`) including "use client" banner verification across all built bundles.
+    - Documentation and Stellar Wave program section in `CONTRIBUTING.md` (lines 45-58), `README.md`, and `docs/seed-issues.md`.
+    - GitHub issue forms (`bug.yml`, `feature.yml`, `spike.yml`, `config.yml`) and pull request template (`pull_request_template.md`).
+    - `usePayWithNaira` hook with phased lifecycle state machine and watcher cleanup on unmount/reset.
+    - `PayWithNaira` component with synchronous popup launch before await, popup-blocked fallback link, and accessible ARIA attributes.
+    - `StatusTimeline` component with typed `Record<TransactionStatus, StatusMapping>` covering all 15 statuses, ordered steps, and failure views.
+    - `docs/API.md` contract audit verifying exact alignment with all 15 exports from `src/index.ts`.
+    - `npm pack --dry-run` inspection confirming clean packaging of exactly 7 files.
+    - 9 balanced seed issues across Trivial (3), Medium (4), and High (2) complexity with `Stellar Wave` tags.
+    - Verification of zero duplicated core logic (0 hits for `fetch(`, `sep24`, `Horizon`, `TransactionBuilder`, or `@stellar/`).
+    - Verification of zero open blocking requests in `docs/UPSTREAM-REQUESTS.md`.
+  - Confirmed no real gaps exist; all checks met.
+- **Commands run with results:**
+  - `pnpm build`: Built ESM, CJS, and DTS bundles cleanly via `tsup` (exit code 0).
+  - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
+  - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
+  - `pnpm test`: Ran Vitest suite with `jsdom`, 4 files and 28 tests passed (exit code 0).
+  - `npm pack --dry-run`: Confirmed package contains exactly 7 clean files (exit code 0).
+- **Open issues:** None.
