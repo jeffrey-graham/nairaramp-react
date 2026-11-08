@@ -9,3 +9,13 @@ export {
   PayWithNaira,
   type PayWithNairaProps,
 } from "./PayWithNaira";
+export {
+  StatusTimeline,
+  type StatusTimelineProps,
+  type TimelineStep,
+  type StatusMapping,
+  type StepStatusMapping,
+  type FailureStatusMapping,
+  TIMELINE_STEPS,
+  STATUS_MAP,
+} from "./StatusTimeline";
