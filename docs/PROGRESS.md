@@ -116,3 +116,16 @@
     2. Vitest on Linux Node ESM environment threw `SyntaxError: Named export 'PublicKeypair' not found` when importing `@stellar/typescript-wallet-sdk` via `@nairaramp/core`. Configured `server.deps.inline: ["@nairaramp/core", "@stellar/typescript-wallet-sdk"]` in `vitest.config.ts`.
     3. Confirmed GitHub Actions run `42499981892` passed 100% green on both Node 20 and Node 22 matrices.
 - **Open issues:** None.
+
+## 2026-11-08 - Step 08: StatusTimeline component
+
+- **What was built:**
+  - `src/StatusTimeline.tsx`: Implemented `<StatusTimeline status={TransactionStatus | undefined} message?={string} labels?={...} />`. Configured 6 ordered steps (`Started`, `Waiting for your payment`, `Payment received`, `Anchor processing`, `Sending on Stellar`, `Completed`), typed `Record<TransactionStatus, StatusMapping>` ensuring full compiler status coverage, `<ol>` markup with `aria-current="step"` on the active step, completed step indicator checkmarks, pending step indicators, plain failure line plus anchor message for failure statuses (`refunded`, `expired`, `no_market`, `too_small`, `too_large`, `error`), optional `labels` prop for translation, and responsive inline styles.
+  - `src/index.ts`: Exported `StatusTimeline`, `type StatusTimelineProps`, `type TimelineStep`, `type StatusMapping`, `type StepStatusMapping`, `type FailureStatusMapping`, `TIMELINE_STEPS`, and `STATUS_MAP`.
+  - `test/StatusTimeline.test.tsx`: Added 7 test suites validating all 15 `TransactionStatus` enum values in a loop (checking label display, timeline structure, and `aria-current="step"` on active item), undefined status fallback to Started, custom label translations, failure message rendering with `role="alert"`, in-progress message rendering, and exported step array ordering.
+- **Commands run with results:**
+  - `pnpm build`: Built ESM, CJS, and DTS bundles cleanly via `tsup` (exit code 0).
+  - `pnpm lint`: Ran `eslint .`, passed with 0 errors (exit code 0).
+  - `pnpm typecheck`: Ran `tsc --noEmit`, passed with 0 errors (exit code 0).
+  - `pnpm test`: Ran Vitest suite with `jsdom`, 4 files and 28 tests passed (exit code 0).
+- **Open issues:** None.
